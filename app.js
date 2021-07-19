@@ -5,6 +5,9 @@ const morgan = require("morgan");
 const multer = require("multer");
 const { v4 } = require('uuid')
 
+// INITIALIZE
+require('./db')
+
 // SETTINGS
 const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
