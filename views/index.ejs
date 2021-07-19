@@ -2,17 +2,27 @@
 <html lang="en">
   <%- include('templates/head.ejs') %>
   <body>
+    <%- include('templates/navbar.ejs') %>
     <div class="container p-4">
-      <% images.forEach(image => { %>
-      <div class="card" style="width: 18rem">
-        <img src="<%= image.path %>" class="card-img-top" alt="<%= image.title %>" />
-        <div class="card-body">
-          <h5 class="card-title"><%= image.title %></h5>
-          <p class="card-text"><%= image.description %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+      <div class="row align-items-start">
+        <% images.forEach(image => { %>
+          <div class="col-sm-4 col-6">
+            <div class="card mt-1 animate__animated animate__fadeInDown">
+              <img
+                src="<%= image.path %>"
+                class="card-img-top"
+                alt="<%= image.title %>"
+              />
+              <div class="card-body">
+                <h5 class="card-title"><%= image.title %></h5>
+                <p class="card-text"><%= image.description %></p>
+                <p class="card-text"><%= format(image.create_at) %></p>
+                <a href="/image/<%=image._id%> " class="btn btn-danger">View Image</a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
       </div>
-      <% }); %>
     </div>
   </body>
 </html>

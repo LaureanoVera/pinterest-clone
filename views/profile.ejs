@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('templates/head.ejs') %>
+  </head>
+  <body> 
+    <%- include('templates/navbar.ejs') %>
+    <div class="container">
+      <div class="col-md-4 offset-md-4 mt-5">
+        <div class="card p-2 animate__animated animate__fadeInDown" style="max-width: 18em;">
+          <h5 class="card-title p-1 badge bg-secondary"><%= image.title %></h5>
+          <img
+            src="<%= image.path %>"
+            class="card-img-top"
+            alt="<%= image.title %>"
+          />
+          <div class="card-body">
+            <p class="card-text"><%= image.description %></p>
+            <p class="card-text"><%= format(image.create_at) %></p>
+            <a href="/" type="button" class="btn btn-danger col-md-5">Back</a>
+            <a href="/image/<%=image._id%>/delete" type="button" class="btn btn-warning col-md-5">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
