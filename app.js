@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const morgan = require("morgan");
 const multer = require("multer");
+const { v4 } = require('uuid')
 
 // SETTINGS
 const port = process.env.PORT || 3000;
@@ -15,11 +16,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // MIDDLEWARES
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  multer({
-    dest: path.join(__dirname, "public", "images", "upload"),
-  }).single("image")
-);
+const storage = multer.diskStorage({
+  destination: path.join(__dirname,'public','images','upload'),
+  filename: (req, file, cb) => { // cb = callback
+    cb(null, v4() + path.extname(file.originalname)) // extension
+  }
+})
+app.use(multer({ storage }).single("image"));
 
 // GLOBAL
 
