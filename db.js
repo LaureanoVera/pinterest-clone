@@ -8,6 +8,7 @@ mongoose
     `mongodb+srv://${USER}:${PASS}@clusterp-c.mu2bw.mongodb.net/${NAME}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
+      useUnifiedTopology: true
     }
   )
   .then((db) => console.log("DB is connected"))

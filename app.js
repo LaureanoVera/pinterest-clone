@@ -5,12 +5,12 @@ const morgan = require("morgan");
 const multer = require("multer");
 const { v4 } = require('uuid')
 const { format } = require('timeago.js')
+const port = process.env.PORT || 3000;
 
 // INITIALIZE
 require('./db')
 
 // SETTINGS
-const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
