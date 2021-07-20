@@ -8,7 +8,7 @@ const { format } = require('timeago.js')
 const port = process.env.PORT || 3000;
 
 // INITIALIZE
-require('./db')
+require('./settings/db')
 
 // SETTINGS
 app.set("view engine", "ejs");
